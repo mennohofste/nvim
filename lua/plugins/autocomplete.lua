@@ -45,4 +45,12 @@ return {
       })
     end,
   },
+  {
+    "echasnovski/mini.pairs",
+    opts = function(_, opts)
+      opts.mappings = {
+        ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][%s]" },
+      }
+    end,
+  },
 }
