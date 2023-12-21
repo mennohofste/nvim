@@ -6,10 +6,7 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {
-          settings = { python = { pythonPath = os.getenv("CONDA_PREFIX") .. "/bin/python" } },
-          root_dir = require("lspconfig").util.find_git_ancestor,
-        },
+        pyright = { settings = { python = { pythonPath = os.getenv("CONDA_PREFIX") .. "/bin/python" } } },
         ruff_lsp = { init_options = { settings = { lint = { args = { "--unsafe-fixes" } } } } },
       },
     },
