@@ -66,12 +66,20 @@ return {
     }
 
     require("mason").setup()
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        local server = servers[server_name] or {}
-        server.capabilities = capabilities
-        require("lspconfig")[server_name].setup(server)
-      end,
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        "lua_ls",
+        "basedpyright",
+        "ruff",
+        "yamlls",
+      },
+      handlers = {
+        function(server_name)
+          local server = servers[server_name] or {}
+          server.capabilities = capabilities
+          require("lspconfig")[server_name].setup(server)
+        end,
+      },
     })
   end,
 }
