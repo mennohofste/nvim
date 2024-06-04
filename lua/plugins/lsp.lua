@@ -48,7 +48,6 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     { "j-hui/fidget.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} },
   },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
