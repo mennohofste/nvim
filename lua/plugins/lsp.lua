@@ -17,9 +17,6 @@ local setup_lsp_keybinds = function()
       map("<leader>a", vim.lsp.buf.code_action, "Code [A]ction")
       map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-      map("<leader>c", vim.diagnostic.open_float, "Hover Documentation")
-      map("<C-q>", vim.diagnostic.setqflist, "Quickfix list")
-
       vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = event.buf })
 
       local client = vim.lsp.get_client_by_id(event.data.client_id)
