@@ -1,3 +1,6 @@
+-- Show the signcolumn, otherwise text would shift with this plugin
+vim.opt.signcolumn = "yes"
+
 return {
   "lewis6991/gitsigns.nvim",
   opts = {

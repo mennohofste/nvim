@@ -1,3 +1,7 @@
+vim.opt.pumblend = 10 -- Popup blend
+vim.opt.pumheight = 10 -- Maximum number of entries in a popup
+vim.opt.completeopt = "menu,menuone,noselect"
+
 return {
   {
     "hrsh7th/nvim-cmp",

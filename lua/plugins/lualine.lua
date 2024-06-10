@@ -1,3 +1,6 @@
+-- Do not show mode since lualine already shows status
+vim.opt.showmode = false
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
