@@ -1,7 +1,3 @@
-vim.opt.pumblend = 10 -- Popup blend
-vim.opt.pumheight = 10 -- Maximum number of entries in a popup
-vim.opt.completeopt = "menu,menuone,noselect"
-
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -24,6 +20,10 @@ return {
       },
     },
     config = function()
+      vim.opt.pumblend = 10 -- Popup blend
+      vim.opt.pumheight = 10 -- Maximum number of entries in a popup
+      vim.opt.completeopt = "menu,menuone,noselect"
+
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       luasnip.config.setup({})

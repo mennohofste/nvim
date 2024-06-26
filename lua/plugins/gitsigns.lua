@@ -1,6 +1,3 @@
--- Show the signcolumn, otherwise text would shift with this plugin
-vim.opt.signcolumn = "yes"
-
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
@@ -34,4 +31,9 @@ return {
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
     end,
   },
+  config = function(_, opts)
+    -- Show the signcolumn, otherwise text would shift with this plugin
+    vim.opt.signcolumn = "yes"
+    require("gitsigns").setup(opts)
+  end,
 }
