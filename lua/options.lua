@@ -18,3 +18,7 @@ opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.confirm = true -- Confirm to before exiting modified buffer
 opt.undofile = true
 opt.undolevels = 10000
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
