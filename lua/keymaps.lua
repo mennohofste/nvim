@@ -20,3 +20,6 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 -- Diagnostics
 vim.keymap.set("n", "<leader>c", vim.diagnostic.open_float, { desc = "Hover Documentation" })
 vim.keymap.set("n", "<C-q>", vim.diagnostic.setqflist, { desc = "Quickfix list" })
+
+-- Movement
+vim.keymap.set("n", "<leader>l", "<cmd>buffer #<cr>", { desc = "Last buffer" })
