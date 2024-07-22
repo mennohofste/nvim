@@ -18,7 +18,7 @@ return {
         map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
         map("gy", require("telescope.builtin").lsp_type_definitions, "[G]oto T[y]pe")
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        map("<leader>k", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
+        map("<leader>s", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
         map("<leader>S", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace [S]ymbols")
         map("<leader>r", vim.lsp.buf.rename, "[R]ename")
         map("<leader>a", vim.lsp.buf.code_action, "Code [A]ction")
