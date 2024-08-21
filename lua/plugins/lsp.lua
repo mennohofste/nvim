@@ -49,7 +49,6 @@ return {
         "lua_ls",
         "basedpyright",
         "ruff",
-        "yamlls",
       },
       handlers = {
         function(server_name)
