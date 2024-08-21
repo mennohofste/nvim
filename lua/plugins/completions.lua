@@ -20,7 +20,7 @@ return {
       },
     },
     config = function()
-      vim.opt.pumblend = 10 -- Popup blend
+      vim.opt.pumblend = 10  -- Popup blend
       vim.opt.pumheight = 10 -- Maximum number of entries in a popup
       vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -56,7 +56,6 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "copilot" },
           { name = "buffer" },
           { name = "path" },
         }),
