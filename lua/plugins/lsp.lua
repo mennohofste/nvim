@@ -54,16 +54,6 @@ return {
         function(server_name)
           require("lspconfig")[server_name].setup({ capabilities = capabilities })
         end,
-        ["basedpyright"] = function()
-          require("lspconfig").basedpyright.setup({
-            capabilities = capabilities,
-            settings = {
-              python = {
-                pythonPath = os.getenv("CONDA_PREFIX") .. "/bin/python",
-              },
-            },
-          })
-        end,
         ["ruff"] = function()
           require("lspconfig").ruff.setup({
             capabilities = capabilities,
