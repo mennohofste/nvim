@@ -20,7 +20,6 @@ return {
       ["markdown.mdx"] = { "prettier" },
       ["graphql"] = { "prettier" },
       ["handlebars"] = { "prettier" },
-      ["python"] = { "ruff_format", "ruff_fix" },
       ["sh"] = { "shfmt" },
     },
   },
