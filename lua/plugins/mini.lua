@@ -32,5 +32,7 @@ return {
 
     require("mini.indentscope").setup({ symbol = "│", options = { try_as_border = true } })
     require("mini.surround").setup()
+    require("mini.icons").setup()
+    MiniIcons.mock_nvim_web_devicons()
   end,
 }
