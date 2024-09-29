@@ -49,6 +49,7 @@ return {
         "lua_ls",
         "basedpyright",
         "ruff",
+        "rust_analyzer",
       },
       handlers = {
         function(server_name)
@@ -60,6 +61,14 @@ return {
             on_attach = function(client, _)
               client.server_capabilities.hoverProvider = false
             end,
+          })
+        end,
+        ["rust_analyzer"] = function()
+          require("lspconfig").rust_analyzer.setup({
+            capabilities = capabilities,
+            on_attach = function(_, bufnr)
+              vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end
           })
         end,
       },
