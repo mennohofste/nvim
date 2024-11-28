@@ -3,14 +3,6 @@ return {
   ---@module "gitsigns"
   ---@type Gitsigns.Config
   opts = {
-    signs = {
-      add = { text = "▎" },
-      change = { text = "▎" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "▎" },
-      untracked = { text = "▎" },
-    },
     on_attach = function(buffer)
       local gs = package.loaded.gitsigns
 
@@ -18,7 +10,6 @@ return {
         vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
       end
 
-      -- stylua: ignore start
       map("n", "]h", gs.next_hunk, "Next Hunk")
       map("n", "[h", gs.prev_hunk, "Prev Hunk")
       map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
@@ -27,15 +18,14 @@ return {
       map("n", "<leader>hu", gs.undo_stage_hunk, "Undo Stage Hunk")
       map("n", "<leader>hR", gs.reset_buffer, "Reset Buffer")
       map("n", "<leader>hp", gs.preview_hunk_inline, "Preview Hunk Inline")
-      map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      map("n", "<leader>hb", function()
+        gs.blame_line({ full = true })
+      end, "Blame Line")
       map("n", "<leader>hd", gs.diffthis, "Diff This")
-      map("n", "<leader>hD", function() gs.diffthis("~") end, "Diff This ~")
+      map("n", "<leader>hD", function()
+        gs.diffthis("~")
+      end, "Diff This ~")
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
     end,
   },
-  config = function(_, opts)
-    -- Show the signcolumn, otherwise text would shift with this plugin
-    vim.opt.signcolumn = "yes"
-    require("gitsigns").setup(opts)
-  end,
 }
