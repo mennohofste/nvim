@@ -3,7 +3,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "j-hui/fidget.nvim",
     "saghen/blink.cmp",
   },
   config = function()
@@ -43,7 +42,6 @@ return {
       require("blink.cmp").get_lsp_capabilities()
     )
 
-    require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
