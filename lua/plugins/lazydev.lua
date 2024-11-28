@@ -1,5 +1,8 @@
 return {
   "folke/lazydev.nvim",
   ft = "lua",
-  opts = {},
+  ---@module "lazydev"
+  ---@type lazydev.Config
+  opts = {
+  },
 }

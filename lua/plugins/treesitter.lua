@@ -3,6 +3,8 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   version = false,
   build = ":TSUpdate",
+  ---@module "nvim-treesitter"
+  ---@type TSConfig
   opts = {
     auto_install = true,
     highlight = { enable = true },

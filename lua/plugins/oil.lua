@@ -1,11 +1,8 @@
 return {
   "stevearc/oil.nvim",
-  config = function()
-    require("oil").setup({
-      view_options = { show_hidden = true },
-    })
-
-    -- Open parent directory in current window
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-  end,
+  lazy = false,
+  ---@module "oil"
+  ---@type oil.SetupOpts
+  opts = { view_options = { show_hidden = true } },
+  keys = { { "-", "<CMD>Oil<CR>", desc = "Open parent directory" } },
 }

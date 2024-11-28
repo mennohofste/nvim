@@ -6,16 +6,17 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
-  config = function()
-    require("telescope").setup({
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
-        },
+  ---@module "telescope"
+  opts = {
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown(),
       },
-      pickers = { buffers = { ignore_current_buffer = true, sort_mru = true } },
-    })
-
+    },
+    pickers = { buffers = { ignore_current_buffer = true, sort_mru = true } },
+  },
+  config = function(_, opts)
+    require("telescope").setup(opts)
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("fzf")
 
