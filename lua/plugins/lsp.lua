@@ -13,18 +13,10 @@ return {
           vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
-        map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-        map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-        map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-        map("gy", require("telescope.builtin").lsp_type_definitions, "[G]oto T[y]pe")
-        map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        map("<leader>s", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
-        map("<leader>S", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace [S]ymbols")
-        map("<leader>r", vim.lsp.buf.rename, "[R]ename")
-        map("<leader>a", vim.lsp.buf.code_action, "Code [A]ction")
-        map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { buffer = event.buf })
+        map("gd", require("telescope.builtin").lsp_definitions)
+        map("grr", require("telescope.builtin").lsp_references)
+        map("gri", require("telescope.builtin").lsp_implementations)
+        map("gO", require("telescope.builtin").lsp_document_symbols)
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
@@ -35,12 +27,7 @@ return {
       end,
     })
 
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      require("blink.cmp").get_lsp_capabilities()
-    )
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     require("mason").setup()
     require("mason-lspconfig").setup({
