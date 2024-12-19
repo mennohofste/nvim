@@ -2,7 +2,7 @@ return {
   "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
-  ---@module "ktokyonight"
+  ---@module "tokyonight"
   ---@type tokyonight.Config
   opts = { style = "moon" },
   config = function(_, opts)
