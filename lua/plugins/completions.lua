@@ -1,9 +1,8 @@
 return {
   "saghen/blink.cmp",
   version = "*",
-  dependencies = { "rafamadriz/friendly-snippets" },
-  event = "InsertEnter",
-  ---@module "blink"
+  dependencies = "rafamadriz/friendly-snippets",
+  ---@module "blink.cmp"
   ---@type blink.cmp.Config
-  opts = { windows = { documentation = { auto_show = true } } },
+  opts = {},
 }
