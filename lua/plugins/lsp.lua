@@ -9,8 +9,8 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
       callback = function(event)
-        local map = function(keys, func, desc)
-          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        local map = function(keys, func)
+          vim.keymap.set("n", keys, func, { buffer = event.buf })
         end
 
         map("gd", require("telescope.builtin").lsp_definitions)
@@ -22,7 +22,7 @@ return {
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
           map("<leader>th", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-          end, "[T]oggle Inlay [H]ints")
+          end)
         end
       end,
     })
