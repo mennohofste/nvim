@@ -23,6 +23,7 @@ return {
       ["graphql"] = { "prettier" },
       ["handlebars"] = { "prettier" },
       ["sh"] = { "shfmt" },
+      ["bash"] = { "shfmt" },
     },
   },
 }
