@@ -3,8 +3,6 @@ vim.g.maplocalleader = "\\"
 
 local opt = vim.opt
 
-vim.opt.signcolumn = "yes" -- Always show sign column to avoid shifting with gitsigns
-
 -- Cursor
 opt.number = true         -- Print line number
 opt.relativenumber = true -- Relative line numbers
