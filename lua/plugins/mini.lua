@@ -28,5 +28,11 @@ return {
     })
     require("mini.icons").setup()
     MiniIcons.mock_nvim_web_devicons()
+
+    require("mini.files").setup({ windows = { preview = true } })
   end,
+  -- stylua: ignore
+  keys = {
+    { "<leader>e", function() MiniFiles.open() end, desc = "Open mini.files (cwd)" },
+  },
 }
