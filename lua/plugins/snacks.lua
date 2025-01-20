@@ -6,6 +6,7 @@ return {
   ---@type snacks.Config
   opts = {
     dashboard = { enabled = true },
+    indent = { enabled = true },
   },
   -- stylua: ignore
   keys = {
