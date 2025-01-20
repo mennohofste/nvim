@@ -7,6 +7,8 @@ return {
   opts = {
     dashboard = { enabled = true },
     indent = { enabled = true },
+    input = { enabled = true },
+    notifier = { enabled = true },
   },
   -- stylua: ignore
   keys = {
