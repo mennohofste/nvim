@@ -6,27 +6,6 @@ return {
     "saghen/blink.cmp",
   },
   config = function()
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
-      callback = function(event)
-        local map = function(keys, func)
-          vim.keymap.set("n", keys, func, { buffer = event.buf })
-        end
-
-        map("gd", require("telescope.builtin").lsp_definitions)
-        map("grr", require("telescope.builtin").lsp_references)
-        map("gri", require("telescope.builtin").lsp_implementations)
-        map("gO", require("telescope.builtin").lsp_document_symbols)
-
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-          map("<leader>th", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-          end)
-        end
-      end,
-    })
-
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     require("mason").setup()
