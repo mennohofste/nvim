@@ -1,23 +1,13 @@
 return {
   "echasnovski/mini.nvim",
+  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   event = "VeryLazy",
   config = function()
-    local ai = require("mini.ai")
-    ai.setup({
-      n_lines = 500,
+    local spec_treesitter = require("mini.ai").gen_spec.treesitter
+    require("mini.ai").setup({
       custom_textobjects = {
-        -- Object
-        o = ai.gen_spec.treesitter({
-          a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-          i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-        }, {}),
-        -- Function
-        f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-        -- Class
-        c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
-        -- Digit
-        d = { "%f[%d]%d+" },
-        -- Global, whole buffer like `gg` and `G`
+        f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
+        c = spec_treesitter({ a = "@class.outer", i = "@class.inner" }),
         g = function()
           local from = { line = 1, col = 1 }
           local to = {
