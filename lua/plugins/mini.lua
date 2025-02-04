@@ -31,8 +31,13 @@ return {
 
     require("mini.files").setup({ windows = { preview = true } })
   end,
-  -- stylua: ignore
   keys = {
-    { "<leader>e", function() MiniFiles.open() end, desc = "Open mini.files (cwd)" },
+    {
+      "<leader>e",
+      function()
+        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      end,
+      desc = "Open mini.files (cwd)",
+    },
   },
 }
