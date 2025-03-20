@@ -15,6 +15,7 @@ return {
 
         map("grn", vim.lsp.buf.rename)
         map("gra", vim.lsp.buf.code_action)
+        map("gri", vim.lsp.buf.implementation)
       end,
     })
 
