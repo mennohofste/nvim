@@ -13,9 +13,5 @@ vim.keymap.set("v", ">", ">gv")
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Next and previous quickfix
-vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
-vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
-
 -- Diagnostics
 vim.keymap.set("n", "<C-q>", vim.diagnostic.setqflist, { desc = "Quickfix list" })
