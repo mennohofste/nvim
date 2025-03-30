@@ -3,6 +3,7 @@ return {
   ft = "lua",
   ---@module "lazydev"
   ---@type lazydev.Config
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },

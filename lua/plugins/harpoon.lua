@@ -4,9 +4,8 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   ---@module "harpoon"
   ---@type HarpoonConfig
-  opts = {
-    settings = { save_on_toggle = true },
-  },
+  ---@diagnostic disable-next-line: missing-fields
+  opts = { settings = { save_on_toggle = true } },
   -- stylua: ignore
   keys = {
     { "<leader>M", function() require("harpoon"):list():add() end },
