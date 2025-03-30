@@ -22,3 +22,6 @@ opt.undolevels = 10000
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
+
+-- Diagnostic
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
