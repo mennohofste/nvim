@@ -6,19 +6,6 @@ return {
     "saghen/blink.cmp",
   },
   config = function()
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
-      callback = function(event)
-        local map = function(keys, func)
-          vim.keymap.set("n", keys, func, { buffer = event.buf })
-        end
-
-        map("grn", vim.lsp.buf.rename)
-        map("gra", vim.lsp.buf.code_action)
-        map("gri", vim.lsp.buf.implementation)
-      end,
-    })
-
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     require("mason").setup()

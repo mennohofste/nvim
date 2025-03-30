@@ -25,5 +25,6 @@ return {
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "grr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "gri", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+    { "gO", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
   },
 }
