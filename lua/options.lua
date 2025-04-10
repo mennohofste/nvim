@@ -12,6 +12,7 @@ opt.colorcolumn = "80" -- Ruler
 
 -- Visual
 opt.list = true -- Show some invisible characters (tabs...
+opt.signcolumn = "yes" -- Always show sign column to prevent text jumping
 
 -- System
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
