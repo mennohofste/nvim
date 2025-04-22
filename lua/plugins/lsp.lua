@@ -3,38 +3,32 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "saghen/blink.cmp",
   },
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    local servers = {
+      basedpyright = {},
+      ruff = {
+        on_attach = function(client, _)
+          -- Pyright provides hover
+          client.server_capabilities.hoverProvider = false
+        end,
+      },
+      rust_analyzer = {
+        on_attach = function(_, bufnr)
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end,
+      },
+    }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "basedpyright",
-        "ruff",
-        "rust_analyzer",
-      },
+      automatic_installation = false,
+      ensure_installed = vim.tbl_keys(servers),
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup({ capabilities = capabilities })
-        end,
-        ["ruff"] = function()
-          require("lspconfig").ruff.setup({
-            capabilities = capabilities,
-            on_attach = function(client, _)
-              client.server_capabilities.hoverProvider = false
-            end,
-          })
-        end,
-        ["rust_analyzer"] = function()
-          require("lspconfig").rust_analyzer.setup({
-            capabilities = capabilities,
-            on_attach = function(_, bufnr)
-              vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-            end,
-          })
+          local config = servers[server_name] or {}
+          vim.lsp.config(server_name, config)
+          vim.lsp.enable(server_name)
         end,
       },
     })
