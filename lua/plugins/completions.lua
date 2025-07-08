@@ -29,6 +29,8 @@ return {
       "Kaiser-Yang/blink-cmp-avante",
       "rafamadriz/friendly-snippets",
     },
+    ---@module "blink.cmp"
+    ---@type blink.cmp.Config
     opts = {
       completion = {
         menu = { draw = { treesitter = { "lsp" } } },
