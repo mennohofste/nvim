@@ -11,10 +11,12 @@ return {
   },
   {
     "yetone/avante.nvim",
+    build = "make",
     event = "VeryLazy",
     version = false,
+    ---@module "avante"
+    ---@type avante.Config
     opts = {},
-    build = "make",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
