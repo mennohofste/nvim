@@ -24,7 +24,7 @@ return {
       ["handlebars"] = { "prettier" },
       ["sh"] = { "shfmt" },
       ["bash"] = { "shfmt" },
-      ["nix"] = { "nixfmt" },
+      ["nix"] = { "alejandra" },
     },
   },
 }
