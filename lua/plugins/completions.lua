@@ -7,13 +7,17 @@ return {
     opts = {
       panel = { enabled = false },
       suggestion = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
     },
   },
   {
     "saghen/blink.cmp",
     version = "*",
     dependencies = {
-      "giuxtaposition/blink-cmp-copilot",
+      "fang2hou/blink-copilot",
       "rafamadriz/friendly-snippets",
     },
     ---@module "blink.cmp"
@@ -29,7 +33,7 @@ return {
         providers = {
           copilot = {
             name = "copilot",
-            module = "blink-cmp-copilot",
+            module = "blink-copilot",
             score_offset = 100,
             async = true,
           },
