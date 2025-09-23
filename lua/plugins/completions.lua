@@ -10,25 +10,10 @@ return {
     },
   },
   {
-    "yetone/avante.nvim",
-    build = "make",
-    event = "VeryLazy",
-    version = false,
-    ---@module "avante"
-    ---@type avante.Config
-    opts = {},
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-  },
-  {
     "saghen/blink.cmp",
     version = "*",
     dependencies = {
       "giuxtaposition/blink-cmp-copilot",
-      "Kaiser-Yang/blink-cmp-avante",
       "rafamadriz/friendly-snippets",
     },
     ---@module "blink.cmp"
@@ -40,12 +25,8 @@ return {
         ghost_text = { enabled = true },
       },
       sources = {
-        default = { "avante", "lsp", "path", "snippets", "buffer", "copilot" },
+        default = { "lsp", "path", "snippets", "buffer", "copilot" },
         providers = {
-          avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-          },
           copilot = {
             name = "copilot",
             module = "blink-cmp-copilot",
