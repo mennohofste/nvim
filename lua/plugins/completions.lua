@@ -1,23 +1,8 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    event = "BufReadPost",
-    opts = {
-      panel = { enabled = false },
-      suggestion = { enabled = false },
-      filetypes = {
-        markdown = true,
-        help = true,
-      },
-    },
-  },
-  {
     "saghen/blink.cmp",
     version = "*",
     dependencies = {
-      "fang2hou/blink-copilot",
       "rafamadriz/friendly-snippets",
     },
     ---@module "blink.cmp"
@@ -28,17 +13,7 @@ return {
         documentation = { auto_show = true },
         ghost_text = { enabled = true },
       },
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer", "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
-      },
+      sources = { default = { "lsp", "path", "snippets", "buffer" } },
     },
   },
 }
