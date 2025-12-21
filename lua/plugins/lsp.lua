@@ -25,15 +25,12 @@ return {
       },
     }
 
+    for server_name, config in pairs(servers) do
+      vim.lsp.config(server_name, config)
+      vim.lsp.enable(server_name)
+    end
+
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      handlers = {
-        function(server_name)
-          local config = servers[server_name] or {}
-          vim.lsp.config(server_name, config)
-          vim.lsp.enable(server_name)
-        end,
-      },
-    })
+    require("mason-lspconfig").setup()
   end,
 }
