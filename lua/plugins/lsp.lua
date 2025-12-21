@@ -6,7 +6,11 @@ return {
   },
   config = function()
     local servers = {
-      basedpyright = {},
+      basedpyright = {
+        on_attach = function(_, bufnr)
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end,
+      },
       ruff = {
         on_attach = function(client, _)
           -- Pyright provides hover
@@ -14,6 +18,7 @@ return {
         end,
       },
       rust_analyzer = {
+        settings = { ["rust-analyzer"] = { check = { command = "clippy" } } },
         on_attach = function(_, bufnr)
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end,
@@ -22,8 +27,6 @@ return {
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      automatic_installation = false,
-      ensure_installed = vim.tbl_keys(servers),
       handlers = {
         function(server_name)
           local config = servers[server_name] or {}
