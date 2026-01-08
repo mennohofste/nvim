@@ -32,16 +32,5 @@ return {
     })
     require("mini.icons").setup()
     MiniIcons.mock_nvim_web_devicons()
-
-    require("mini.files").setup({ windows = { preview = true } })
   end,
-  keys = {
-    {
-      "<leader>e",
-      function()
-        MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      end,
-      desc = "Open mini.files (cwd)",
-    },
-  },
 }
