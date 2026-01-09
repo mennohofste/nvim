@@ -11,6 +11,11 @@ return {
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end,
       },
+      clangd = {
+        on_attach = function(_, bufnr)
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end,
+      },
       ruff = {
         on_attach = function(client, _)
           -- Pyright provides hover
