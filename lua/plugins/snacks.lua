@@ -6,7 +6,6 @@ return {
   ---@type snacks.Config
   opts = {
     dashboard = { enabled = true },
-    explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -18,8 +17,6 @@ return {
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
     { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-
-    { "<leader>e", function() Snacks.explorer() end, desc = "Explorer" },
 
     { "<leader>f", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
