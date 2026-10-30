@@ -7,6 +7,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
+vim.pack.add({
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+})
+
 -- Treesitter highlight
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
@@ -31,9 +36,4 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.treesitter.start(ev.buf, lang)
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
-})
-
-vim.pack.add({
-  "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 })
