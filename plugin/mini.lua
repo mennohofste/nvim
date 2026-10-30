@@ -18,17 +18,18 @@ require("mini.ai").setup({
 })
 
 require("mini.surround").setup()
+
 require("mini.diff").setup({
   view = {
     style = "sign",
     signs = { add = "┃", change = "┃", delete = "▁" },
   },
 })
+
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
 
 require("mini.files").setup({ windows = { preview = true } })
-
 vim.keymap.set("n", "<leader>e", function()
-  MiniFiles.open(vim.api.nvim_buf_get_name(0))
+  MiniFiles.open()
 end, { desc = "Open mini.files (cwd)" })
